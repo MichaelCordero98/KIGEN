@@ -15,7 +15,7 @@
 .home {
   height: 60px;
   width: 60px;
-  background-image: url("/images/home.png");
+  background-image: url("images/home.png");
   background-repeat: no-repeat;
   background-size: 60px 60px;
 }
@@ -23,7 +23,7 @@
 .home:hover {
   height: 60px;
   width: 60px;
-  background-image: url("/images/home-grey.png");
+  background-image: url("images/home-grey.png");
   background-repeat: no-repeat;
   background-size: 60px 60px;
 }
