@@ -1,3 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset padding on all content */
+body,
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
 .navbar {
   position: absolute;
   width: 100%;
@@ -5,7 +29,7 @@
 }
 
 .navbar-brand {
-  padding: 0;
+  padding: 0
 }
 
 .nav-item {
@@ -28,68 +52,52 @@
   background-size: 60px 60px;
 }
 
-.about-link {
-  color: #000;
-  margin-right: 20px;
-}
-
-.contact-link {
-  color: #000;
-  margin-right: 25px;
-}
-
-.about-link:hover {
-  color: #393e46
-}
-
-.contact-link:hover {
-  color: #393e46;
-}
-
 .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin: 0;
+  height: fit-content;
 }
 
-.title {
-  text-align: center;
-}
-
+/* LEFT CONTAINER */
 .left-container {
   color: #000;
   background-color: #e7e6e1;
-  height: 1000px;
+  height: auto;
+  min-height: 100vh;
   padding: 0;
 }
 
+.title {
+  position: relative;
+  top: 35%;
+  text-align: center;
+  padding: 0 2em;
+}
+
+
 .top-text {
-  font-size: 120px;
-  margin-top: 260px;
-  margin-bottom: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 6rem;
   position: relative;
   z-index: 1;
 }
 
 .mid-text {
-  font-size: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  margin-top: -20px;
   position: relative;
   z-index: 1;
 }
 
 .bot-text {
-  font-size: 70px;
+  font-size: 3.2rem;
   margin-top: 10px;
-  font-family: 'Montserrat', sans-serif;
   position: relative;
   z-index: 1;
 }
 
 .circle {
-  top: -360px;
-  height: 300px;
-  width: 300px;
+  top: -300px;
+  height: 250px;
+  width: 250px;
   background-color: #bd0029;
   border-radius: 50%;
   display: inline-block;
@@ -97,81 +105,53 @@
   z-index: 0;
 }
 
+/* RIGHT CONTAINER */
 .right-container {
   background-color: #fff;
-  height: 1000px;
-  padding: 0;
+  padding: 0 0 1em;
+  height: auto;
+  min-height: 100vh;
+  max-height: fit-content;
   text-align: center;
+  overflow: auto;
 }
 
-.cover-image-container {
-  min-height: 150px;
-  overflow: hidden;
+.button-control {
+  position: relative;
+  top: 45%;
 }
 
-.anime-cover-image {
-  margin-top: 60px;
-  width: 100%;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+.button-control h1 {
+  padding: 0 1em;
+  font-size: 1.7rem;
+  margin-bottom: 1.0em;
 }
 
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.btn-lg {
+  font-size: 1.50rem;
+  color: #bd0029;
+  border-color: #bd0029;
 }
 
-.anime-info {
-  font-family: 'Montserrat', sans-serif;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 19px;
+.btn-lg:hover {
+  background-color: #bd0029;
+  border-color: #bd0029;
 }
 
-.anime-info > li {
-  display: inline-block;
-}
-
-.anime-title {
-  margin-top: 20px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.anime-synopsis {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.anime-synopsis>p {
-  margin-top: 20px;
-  text-align: left;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.anime-genres {
-  margin-top: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-}
-
-.one-liner {
-  margin-top: 390px;
-  margin-bottom: 25px;
-  font-size: 25px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
+/* POST GENERATE PRESS */
+.btn-top {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5em;
+  font-size: 1.0rem;
+  margin-left: 25px;
 }
 
 .prev, .next {
   display: block;
-  position: absolute;
-  z-index: 1;
-  margin-top: 14px;
+  position: relative;
+  margin-top: -35px;
   margin-left: 150px;
   font-size: 0.8rem;
   padding-left: 9px;
@@ -180,34 +160,142 @@
 
 .next {
   margin-left: 180px;
+  margin-top: -33.0px;
 }
 
-.btn-top {
+.anime-cover-image {
+  margin-top: 25px;
+  width: 100%;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.anime-title {
+  font-size: 1.6rem;
+  margin: 1em 0;
+  padding: 0 2em;
+}
+
+.anime-synopsis {
+  padding: 0 2em;
+}
+
+.anime-synopsis h3 {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.anime-synopsis h3::after,
+.anime-info h3::after,
+.anime-genres h3::after {
   display: block;
-  position: absolute;
-  z-index: 1;
-  margin-top: 11px;
+  margin-top: 0.5em;
+  content: '';
+  width: 100%;
+  height: 0.5px;
+  background: #000;
+}
+
+.anime-synopsis p {
+  padding-top: 1em;
+  text-align: left;
+}
+
+.anime-info {
+  padding: 1em 32px;
+  font-size: 19px;
+}
+
+.anime-info h3 {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.grid-container {
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.grid-item {
   font-size: 1.0rem;
-  margin-left: 25px;
+  background: #e7e6e1;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 7px 1em;
 }
 
-.btn-outline-dark {
-  color: #bd0029;
-  border-color: #bd0029;
+.anime-genres {
+  padding: 1em 32px;
+  font-size: 18px;
 }
 
-.btn-lg {
-  font-size: 1.75rem;
+.anime-genres h3 {
+  text-align: left;
+  font-size: 1.2rem;
 }
 
-.btn-color:hover {
-  background-color: #bd0029;
-  border-color: #bd0029;
+.anime-genres p {
+  padding-top: 16px;
+  text-align: left;
 }
 
 .footer {
   background-color: #314e52;
   border: 1px solid;
-  height: 300px;
+  height: 200px;
   margin-top: -1.5%;
+}
+
+@media (max-width: 570px) {
+  .grid-container {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (max-width: 1199px) {
+  .left-container {
+    height: 100vh;
+  }
+}
+
+/* media queries */
+@media (max-width: 448px) { /*mobile design */
+  .anime-synopsis {
+    padding: 0 1.5em;
+  }
+
+  .grid-container {
+    grid-template-columns: auto auto;
+  }
+
+  .top-text {
+    font-size: 64px;
+  }
+
+  .mid-text {
+    margin-top: -10px;
+    font-size: 30px;
+  }
+
+  .bot-text {
+    font-size: 31px;
+  }
+
+  .circle {
+    margin-top: 105px;
+    height: 165px;
+    width: 165px;
+  }
+
+  .right-container h1 {
+    font-size: 1.3rem;
+  }
+
 }

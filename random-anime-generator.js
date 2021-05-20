@@ -8708,8 +8708,8 @@ function getAnimeStudio(url) {
       try {
         const parsedData = JSON.parse(rawData);
         let animeStudio = parsedData.data.attributes.name;
-          let studio = document.getElementById("studio");
-          studio.innerHTML = "Studio: " + animeStudio;
+        let studio = document.getElementById("studio");
+        studio.innerHTML = "Studio:<br> " + animeStudio;
       } catch (e) {
         console.error(e.message);
       }
@@ -8725,16 +8725,16 @@ function getGenres(url) {
     res.on('end', () => {
       try {
         const parsedData = JSON.parse(rawData);
-        let genres = document.getElementsByClassName("anime-genres");
-        genres[0].innerHTML = "Genres:";
+        let genres = document.getElementById("genres-paragraph");
+        genres.innerHTML = "";
         if (parsedData.meta.count === 0) {
-          genres[0].innerHTML += " NA";
+          genres.innerHTML = " NA";
         }
         for (let i = 0; i < parsedData.meta.count; i++) {
           if (i === parsedData.meta.count - 1) {
-            genres[0].innerHTML += " " + parsedData.data[i].attributes.name
+            genres.innerHTML += " " + parsedData.data[i].attributes.name
           } else {
-            genres[0].innerHTML += " " + parsedData.data[i].attributes.name + " |";
+            genres.innerHTML += " " + parsedData.data[i].attributes.name + " |";
           }
         }
       } catch (e) {
@@ -8774,7 +8774,7 @@ function displayAnime(data) {
   let synopsis = document.createElement('h3');
   let description = document.createElement('p');
   let synopsisDiv = document.createElement('div');
-  synopsis.innerHTML = "Synopsis"
+  synopsis.innerHTML = "Synopsis";
   description.innerHTML = data.attributes.description;
   synopsisDiv.classList.add("anime-synopsis");
   container[0].appendChild(synopsisDiv);
@@ -8784,48 +8784,70 @@ function displayAnime(data) {
 
   // Append anime info
   let animeInfo = document.createElement('div');
-  animeInfo.classList.add("row", "anime-info");
+  animeInfo.classList.add("anime-info");
   container[0].appendChild(animeInfo);
+
+  // Append anime info header
+  let animeInfoHeader = document.createElement('h3');
+  animeInfoHeader.innerHTML = "Anime Info";
+  animeInfo.appendChild(animeInfoHeader);
+
+  // Append grid container
+  let gridContainer = document.createElement('div');
+  gridContainer.classList.add("grid-container");
+  animeInfo.appendChild(gridContainer);
 
   // Rating
   let rating = document.createElement('div');
-  rating.innerHTML = "Rating: " + data.attributes.averageRating;
-  rating.classList.add("col");
+  rating.innerHTML = "Rating:<br>" + data.attributes.averageRating;
+  rating.classList.add("grid-item");
   rating.id = "rating";
-  animeInfo.appendChild(rating);
+  gridContainer.appendChild(rating);
 
   // Members
   let members = document.createElement('div');
-  members.innerHTML = "Members: " + data.attributes.userCount;
-  members.classList.add("col");
+  members.innerHTML = "Members:<br> " + data.attributes.userCount;
+  members.classList.add("grid-item");
   members.id = "members";
-  animeInfo.appendChild(members);
+  gridContainer.appendChild(members);
 
   // Ranked
   let ranked = document.createElement('div');
-  ranked.innerHTML = "Ranked: " + data.attributes.popularityRank;
-  ranked.classList.add("col");
+  ranked.innerHTML = "Ranked:<br> " + data.attributes.popularityRank;
+  ranked.classList.add("grid-item");
   ranked.id = "ranked";
-  animeInfo.appendChild(ranked);
+  gridContainer.appendChild(ranked);
 
   // Episodes
   let episodes = document.createElement('div');
-  episodes.innerHTML = "Episodes: " + data.attributes.episodeCount;
-  episodes.classList.add("col");
+  episodes.innerHTML = "Episodes:<br> " + data.attributes.episodeCount;
+  episodes.classList.add("grid-item");
   episodes.id = "episodes";
-  animeInfo.appendChild(episodes);
+  gridContainer.appendChild(episodes);
 
   // Studio
   let studio = document.createElement('div');
-  studio.classList.add("col");
+  studio.classList.add("grid-item");
   studio.id = "studio";
-  animeInfo.appendChild(studio);
+  gridContainer.appendChild(studio);
   getStudio(data.relationships.animeProductions.links.related);
 
   // Append genres
   let genres = document.createElement('div');
   genres.classList.add("anime-genres");
   container[0].appendChild(genres);
+
+  // Append genres header
+  let genresHeader = document.createElement('h3');
+  genresHeader.innerHTML = "Genres";
+  genres.appendChild(genresHeader);
+
+  // Append genres paragraph
+  let genresParagraph = document.createElement('p');
+  genresParagraph.id = "genres-paragraph";
+  genres.appendChild(genresParagraph);
+
+  // Get genres
   getGenres(data.relationships.genres.links.related);
 
 }
@@ -8854,16 +8876,16 @@ function changeAnime(data) {
   description[0].innerHTML = data.attributes.description;
 
   let rating = document.getElementById("rating");
-  rating.innerHTML = "Rating: " + data.attributes.averageRating;
+  rating.innerHTML = "Rating:<br> " + data.attributes.averageRating;
 
   let members = document.getElementById("members");
-  members.innerHTML = "Members: " + data.attributes.userCount;
+  members.innerHTML = "Members:<br> " + data.attributes.userCount;
 
   let ranked = document.getElementById("ranked");
-  ranked.innerHTML = "Ranked: " + data.attributes.popularityRank;
+  ranked.innerHTML = "Ranked:<br> " + data.attributes.popularityRank;
 
   let episodes = document.getElementById("episodes");
-  episodes.innerHTML = "Episodes: " + data.attributes.episodeCount;
+  episodes.innerHTML = "Episodes:<br> " + data.attributes.episodeCount;
 
   getStudio(data.relationships.animeProductions.links.related);
 
