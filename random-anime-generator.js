@@ -8748,14 +8748,9 @@ function getGenres(url) {
 function displayAnime(data) {
   let container = document.getElementsByClassName('right-container');
 
-  // Display console information
-  // console.log("Display Anime");
-  // console.log(data.attributes.canonicalTitle);
-  // console.log(data);
-
   // Append cover image
   let image = document.createElement('img');
-  image.src = data.attributes.coverImage.small;
+  image.src = data.attributes.coverImage.large;
   image.classList.add("anime-cover-image");
   let coverImageDiv = document.createElement('div');
   coverImageDiv.classList.add("cover-image-container");
@@ -8853,9 +8848,6 @@ function displayAnime(data) {
 }
 
 function changeAnime(data) {
-  // console.log("Change Anime");
-  // console.log(data.attributes.canonicalTitle);
-  // console.log(data);
 
   let removeImage = document.getElementsByClassName("anime-cover-image");
   if (removeImage[0] != null) {
@@ -8863,7 +8855,7 @@ function changeAnime(data) {
   }
 
   let image = document.createElement('img');
-  image.src = data.attributes.coverImage.small;
+  image.src = data.attributes.coverImage.large;
   image.classList.add("anime-cover-image");
 
   let coverImageContainer = document.getElementsByClassName("cover-image-container");

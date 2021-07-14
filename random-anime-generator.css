@@ -68,7 +68,7 @@ body {
 
 .title {
   position: relative;
-  top: 35%;
+  top: 345px;
   text-align: center;
   padding: 0 2em;
 }
@@ -81,21 +81,12 @@ body {
 }
 
 .mid-text {
-  font-size: 3rem;
-  margin-top: -20px;
-  position: relative;
-  z-index: 1;
-}
-
-.bot-text {
-  font-size: 3.2rem;
-  margin-top: 10px;
   position: relative;
   z-index: 1;
 }
 
 .circle {
-  top: -300px;
+  top: -225px;
   height: 250px;
   width: 250px;
   background-color: #bd0029;
@@ -166,7 +157,7 @@ body {
 .anime-cover-image {
   margin-top: 25px;
   width: 100%;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -webkit-animation: fadein 2s;
 }
 
 @-webkit-keyframes fadein {
@@ -267,6 +258,11 @@ body {
 
 /* media queries */
 @media (max-width: 448px) { /*mobile design */
+
+  .title {
+    top: 37%;
+  }
+
   .anime-synopsis {
     padding: 0 1.5em;
   }
@@ -280,16 +276,11 @@ body {
   }
 
   .mid-text {
-    margin-top: -10px;
-    font-size: 30px;
-  }
-
-  .bot-text {
-    font-size: 31px;
+    font-size: 1rem;
   }
 
   .circle {
-    margin-top: 105px;
+    margin-top: 80px;
     height: 165px;
     width: 165px;
   }
